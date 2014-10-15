@@ -1,11 +1,31 @@
-#Minimalistic DEMO app for Ti.DrawerLayout module
+#Demo App for [Ti.DrawerLayout](https://github.com/Tripvi/Ti.DrawerLayout)
 
-Module located at [Ti.DrawerLayout module at https://github.com/Tripvi/Ti.DrawerLayout](Ti.DrawerLayout module at https://github.com/Tripvi/Ti.DrawerLayout)
+This is a demo application for showing how to use [https://github.com/manumaticx/Ti.DrawerLayout](https://github.com/manumaticx/Ti.DrawerLayout)
 
-Simply run this app and tap on the white background to toggle the drawer.
+It shows how to use the drawer for navigation. The left view of the drawer layout works as a menu that lets you switch between top-level views. Each content view is represented as an element in the menu.
 
-![](http://s10.postimg.org/835jfh1cp/Screenshot_2014_01_28_14_52_13.png)
+Every content view is a separate controller which can have its own ActionBar setup and optionsMenu.
 
-Notice that as mentioned on a ticket (https://github.com/Tripvi/Ti.DrawerLayout/issues/3) they weren't able to implement the "hamburger" icon on the ActionBar.  You could add the toggle code to the onHomeIconItemSelected event of the ActionBar.
+### License
 
-I have also included an APK in case you only want to test it out.
+    The MIT License (MIT)
+
+    Copyright (c) 2014 Manuel Lehner
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
