@@ -38,13 +38,13 @@ if (OS_ANDROID) {
             var actionBar=activity.getActionBar();
             if (actionBar){
                 actionBar.displayHomeAsUp=true;
-                actionBar.title="Ti.DrawerLayout Demo"
+                actionBar.title="Ti.DrawerLayout Demo";
                 actionBar.onHomeIconItemSelected=function(){
                   drawer.toggleLeftWindow();  
-                }
+                };
             }    
         }
-    })
+    });
 
     $.mainWindow.add(drawer);
     $.mainWindow.open();
