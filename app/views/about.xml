@@ -1,5 +1,5 @@
 <Alloy>
     <View onCreateOptionsMenu="onCreateOptionsMenu">
-        <Label text="Main view" />
+        <Label text="About view" />
     </View>
 </Alloy>

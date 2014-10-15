@@ -5,7 +5,7 @@ var args = arguments[0] || {};
  */
 function onCreateOptionsMenu(e) {
   if (e.actionBar) {
-    e.actionBar.title = "Main";
+    e.actionBar.title = "Search";
   }
 }
 

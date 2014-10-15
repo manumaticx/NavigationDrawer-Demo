@@ -1,4 +1,8 @@
 <Alloy>
-    <TableView id="menuTable" backgroundColor="#3F3D3D" onClick="doMenuClick">
+    <TableView backgroundColor="#3F3D3D" onClick="onSelect">
+      <Require src="menurow" title="Home" controller="main"/>
+      <Require src="menurow" title="Search" controller="search"/>
+      <Require src="menurow" title="Likes" controller="likes"/>
+      <Require src="menurow" title="About" controller="about"/>
     </TableView>
 </Alloy>

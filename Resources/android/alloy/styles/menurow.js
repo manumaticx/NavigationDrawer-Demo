@@ -1,1 +1,1 @@
-module.exports = [{"isClass":true,"priority":10000.0006,"key":"container","style":{}}];
+module.exports = [{"isClass":true,"priority":10000.0005,"key":"container","style":{}}];

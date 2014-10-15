@@ -1,1 +1,1 @@
-module.exports = [{"isClass":true,"priority":10000.0005,"key":"container","style":{}}];
+module.exports = [{"isApi":true,"priority":1000.0004,"key":"TableViewRow","style":{color:"#ddd",font:{fontFamily:"Roboto",fontSize:24,fontWeigth:"bold",},}}];

@@ -8,12 +8,17 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function onCreateOptionsMenu(e) {
+        e.actionBar && (e.actionBar.title = "About");
+    }
+    function destroy() {
+        $.off();
+    }
     function init() {
-        $.menurow.title = args.title;
-        $.menurow.controller = args.controller;
+        $.on("createOptionsMenu", onCreateOptionsMenu);
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
-    this.__controllerPath = "menurow";
+    this.__controllerPath = "about";
     if (arguments[0]) {
         {
             __processArg(arguments[0], "__parentSymbol");
@@ -27,19 +32,21 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
-    $.__views.menurow = Ti.UI.createTableViewRow({
-        height: "60",
-        width: "fill",
-        id: "menurow"
+    $.__views.about = Ti.UI.createView({
+        onCreateOptionsMenu: "onCreateOptionsMenu",
+        id: "about"
     });
-    $.__views.menurow && $.addTopLevelView($.__views.menurow);
+    $.__views.about && $.addTopLevelView($.__views.about);
+    $.__views.__alloyId0 = Ti.UI.createLabel({
+        text: "About view",
+        id: "__alloyId0"
+    });
+    $.__views.about.add($.__views.__alloyId0);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {};
-    $.menurow.setActive = function(_active) {
-        $.menurow.setBackgroundColor(_active ? "#333333" : "#3F3D3D");
-    };
-    init();
+    arguments[0] || {};
+    exports.destroy = destroy;
+    exports.init = init;
     _.extend($, exports);
 }
 

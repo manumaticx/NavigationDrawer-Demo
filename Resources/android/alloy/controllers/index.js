@@ -8,6 +8,53 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function initDrawer() {
+        var TiDrawerLayout = require("com.tripvi.drawerlayout");
+        menu = Alloy.createController("menu", {
+            parent: $.index
+        });
+        Alloy.Globals.contentView = Ti.UI.createView({
+            width: Ti.UI.FILL,
+            height: Ti.UI.FILL
+        });
+        Alloy.Globals.drawer = TiDrawerLayout.createDrawer({
+            leftView: menu.getView(),
+            centerView: Alloy.Globals.contentView,
+            leftDrawerWidth: 240
+        });
+        Alloy.Globals.drawer.addEventListener("draweropen", onDrawerChange);
+        Alloy.Globals.drawer.addEventListener("drawerclose", onDrawerChange);
+        $.index.add(Alloy.Globals.drawer);
+        $.index.open();
+    }
+    function onOpen() {
+        var activity = $.index.getActivity();
+        if (activity) {
+            var actionBar = activity.getActionBar();
+            activity.onCreateOptionsMenu = function(e) {
+                e.menu.clear();
+                e.activity = activity;
+                e.actionBar = actionBar;
+                Alloy.Globals.drawer.isLeftDrawerOpen ? actionBar.title = "TiDrawer Demo" : Alloy.Globals.optionsMenu(e);
+            };
+            if (actionBar) {
+                actionBar.displayHomeAsUp = true;
+                actionBar.title = "TiDrawer Demo";
+                actionBar.onHomeIconItemSelected = function() {
+                    Alloy.Globals.drawer.toggleLeftWindow();
+                };
+            }
+        }
+        init();
+        return true;
+    }
+    function onDrawerChange() {
+        $.index.getActivity().invalidateOptionsMenu();
+    }
+    function init() {
+        menu.select(0);
+        true && $.index.getActivity().invalidateOptionsMenu();
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
     if (arguments[0]) {
@@ -23,45 +70,17 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
-    $.__views.mainWindow = Ti.UI.createWindow({
-        id: "mainWindow",
-        navBarHidden: "false",
-        backgroundColor: "white",
-        exitOnClose: "true"
+    var __defers = {};
+    $.__views.index = Ti.UI.createWindow({
+        id: "index"
     });
-    $.__views.mainWindow && $.addTopLevelView($.__views.mainWindow);
+    $.__views.index && $.addTopLevelView($.__views.index);
+    onOpen ? $.__views.index.addEventListener("open", onOpen) : __defers["$.__views.index!open!onOpen"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var TiDrawerLayout = require("com.tripvi.drawerlayout");
-    var menuTable = Alloy.createController("menu").getView();
-    var contentView = Alloy.createController("main").getView();
-    var drawer = TiDrawerLayout.createDrawer({
-        leftView: menuTable,
-        centerView: contentView,
-        leftDrawerWidth: "240",
-        width: Ti.UI.FILL,
-        height: Ti.UI.FILL
-    });
-    Alloy.CFG.drawer = drawer;
-    Alloy.CFG.contentView = contentView;
-    drawer.addEventListener("draweropen", function() {});
-    drawer.addEventListener("drawerclose", function() {});
-    drawer.addEventListener("drawerslide", function() {});
-    $.mainWindow.addEventListener("open", function() {
-        var activity = $.mainWindow.getActivity();
-        if (activity) {
-            var actionBar = activity.getActionBar();
-            if (actionBar) {
-                actionBar.displayHomeAsUp = true;
-                actionBar.title = "Ti.DrawerLayout Demo";
-                actionBar.onHomeIconItemSelected = function() {
-                    drawer.toggleLeftWindow();
-                };
-            }
-        }
-    });
-    $.mainWindow.add(drawer);
-    $.mainWindow.open();
+    var menu;
+    initDrawer();
+    __defers["$.__views.index!open!onOpen"] && $.__views.index.addEventListener("open", onOpen);
     _.extend($, exports);
 }
 

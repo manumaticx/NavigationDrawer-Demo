@@ -38,7 +38,11 @@
             </dict>
         </plist>
     </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android" />
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+      <manifest>
+          <application android:theme="@style/Theme.AppCompat.Light"></application>
+      </manifest>
+    </android>
     <mobileweb>
         <precache/>
         <splash>

@@ -8,21 +8,28 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function doMenuClick() {
-        Alloy.CFG.contentView.backgroundColor = "#" + generateColor();
-        Alloy.CFG.drawer.toggleLeftWindow();
+    function onSelect(e) {
+        if (e.row !== selected) {
+            selectRow(e.row);
+            _.defer(function() {
+                Alloy.Globals.drawer.toggleLeftWindow();
+            });
+        }
     }
-    function generateColor() {
-        return function lol(m, s, c) {
-            return s[m.floor(m.random() * s.length)] + (c && lol(m, s, c - 1));
-        }(Math, "3456789ABCDEF", 4);
+    function selectRow(_row) {
+        selected && selected.setActive(false);
+        selected = _row;
+        selected.setActive(true);
+        _.defer(function() {
+            Alloy.Globals.open(Alloy.createController(_row.controller, {
+                parent: args.parent
+            }));
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "menu";
     if (arguments[0]) {
-        {
-            __processArg(arguments[0], "__parentSymbol");
-        }
+        var __parentSymbol = __processArg(arguments[0], "__parentSymbol");
         {
             __processArg(arguments[0], "$model");
         }
@@ -33,22 +40,58 @@ function Controller() {
     var $ = this;
     var exports = {};
     var __defers = {};
-    $.__views.menuTable = Ti.UI.createTableView({
-        id: "menuTable",
-        backgroundColor: "#3F3D3D"
+    var __alloyId5 = [];
+    $.__views.__alloyId6 = Alloy.createController("menurow", {
+        title: "Home",
+        controller: "main",
+        id: "__alloyId6",
+        __parentSymbol: __parentSymbol
     });
-    $.__views.menuTable && $.addTopLevelView($.__views.menuTable);
-    doMenuClick ? $.__views.menuTable.addEventListener("click", doMenuClick) : __defers["$.__views.menuTable!click!doMenuClick"] = true;
+    __alloyId5.push($.__views.__alloyId6.getViewEx({
+        recurse: true
+    }));
+    $.__views.__alloyId9 = Alloy.createController("menurow", {
+        title: "Search",
+        controller: "search",
+        id: "__alloyId9",
+        __parentSymbol: __parentSymbol
+    });
+    __alloyId5.push($.__views.__alloyId9.getViewEx({
+        recurse: true
+    }));
+    $.__views.__alloyId12 = Alloy.createController("menurow", {
+        title: "Likes",
+        controller: "likes",
+        id: "__alloyId12",
+        __parentSymbol: __parentSymbol
+    });
+    __alloyId5.push($.__views.__alloyId12.getViewEx({
+        recurse: true
+    }));
+    $.__views.__alloyId15 = Alloy.createController("menurow", {
+        title: "About",
+        controller: "about",
+        id: "__alloyId15",
+        __parentSymbol: __parentSymbol
+    });
+    __alloyId5.push($.__views.__alloyId15.getViewEx({
+        recurse: true
+    }));
+    $.__views.menu = Ti.UI.createTableView({
+        data: __alloyId5,
+        backgroundColor: "#3F3D3D",
+        id: "menu"
+    });
+    $.__views.menu && $.addTopLevelView($.__views.menu);
+    onSelect ? $.__views.menu.addEventListener("click", onSelect) : __defers["$.__views.menu!click!onSelect"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
-    arguments[0] || {};
-    var data = [];
-    for (i = 0; 10 >= i; i++) {
-        var row = Alloy.createController("menurow").getView();
-        data.push(row);
-    }
-    $.menuTable.data = data;
-    __defers["$.__views.menuTable!click!doMenuClick"] && $.__views.menuTable.addEventListener("click", doMenuClick);
+    var args = arguments[0] || {};
+    var selected;
+    exports.select = function(_index) {
+        selectRow(_.first($.menu.getData()).getRows()[_index]);
+    };
+    __defers["$.__views.menu!click!onSelect"] && $.__views.menu.addEventListener("click", onSelect);
     _.extend($, exports);
 }
 

@@ -1,23 +1,57 @@
+/**
+ * #Menu Controller
+ * 
+ * The menu is a TableView that automatically changes the contentView. The selection
+ * can be don by user (click-event) or through the api (select method).
+ * Selection causes the menu (drawer leftView) to close automatically.
+ */
+
+/**
+ * @property {Object} args
+ */
 var args = arguments[0] || {};
 
-var data=[];
+/**
+ * @property {Number} selected menu index
+ */
+var selected;
 
-for (i=0;i<=10;i++){
-	var row=Alloy.createController('menurow').getView();
-	data.push(row);
+/**
+ * TableView Click-listener Callback
+ * @param {Object} event
+ */
+function onSelect(e) {
+  if (e.row !== selected) {
+    selectRow(e.row);
+    _.defer(function() {
+      Alloy.Globals.drawer.toggleLeftWindow();
+    });
+  }
 }
 
-$.menuTable.data=data;
+/**
+ * Select menu by row
+ * @param {controllers.menuRow} Row
+ */
+function selectRow(_row) {
+  if (selected) {
+    selected.setActive(false);
+  }
 
-function doMenuClick(){
-	// handle the click and close the drawer
-	Alloy.CFG.contentView.backgroundColor='#' + generateColor();
-	Alloy.CFG.drawer.toggleLeftWindow();  
+  selected = _row;
+  selected.setActive(true);
+
+  _.defer(function() {
+    Alloy.Globals.open(Alloy.createController(_row.controller, {
+      parent : args.parent
+    }));
+  });
 }
 
-function generateColor(){
-	return (function lol(m, s, c) {
-                    return s[m.floor(m.random() * s.length)] +
-                        (c && lol(m, s, c - 1));
-                })(Math, '3456789ABCDEF', 4);
-}
+/**
+ * Select menu by index
+ * @param {Number} Index
+ */
+exports.select = function(_index) {
+  selectRow(_.first($.menu.getData()).getRows()[_index]);
+};

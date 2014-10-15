@@ -8,12 +8,17 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function onCreateOptionsMenu(e) {
+        e.actionBar && (e.actionBar.title = "Search");
+    }
+    function destroy() {
+        $.off();
+    }
     function init() {
-        $.menurow.title = args.title;
-        $.menurow.controller = args.controller;
+        $.on("createOptionsMenu", onCreateOptionsMenu);
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
-    this.__controllerPath = "menurow";
+    this.__controllerPath = "search";
     if (arguments[0]) {
         {
             __processArg(arguments[0], "__parentSymbol");
@@ -27,19 +32,21 @@ function Controller() {
     }
     var $ = this;
     var exports = {};
-    $.__views.menurow = Ti.UI.createTableViewRow({
-        height: "60",
-        width: "fill",
-        id: "menurow"
+    $.__views.search = Ti.UI.createView({
+        onCreateOptionsMenu: "onCreateOptionsMenu",
+        id: "search"
     });
-    $.__views.menurow && $.addTopLevelView($.__views.menurow);
+    $.__views.search && $.addTopLevelView($.__views.search);
+    $.__views.__alloyId16 = Ti.UI.createLabel({
+        text: "Search view",
+        id: "__alloyId16"
+    });
+    $.__views.search.add($.__views.__alloyId16);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {};
-    $.menurow.setActive = function(_active) {
-        $.menurow.setBackgroundColor(_active ? "#333333" : "#3F3D3D");
-    };
-    init();
+    arguments[0] || {};
+    exports.destroy = destroy;
+    exports.init = init;
     _.extend($, exports);
 }
 
