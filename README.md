@@ -4,7 +4,9 @@ This is a demo application for showing how to use [https://github.com/manumaticx
 
 It shows how to use the drawer for navigation. The left view of the drawer layout works as a menu that lets you switch between top-level views. Each content view is represented as an element in the menu.
 
-Every content view is a separate controller which can have its own ActionBar setup and optionsMenu.
+Every content view is a separate controller which can have its own ActionBar setup and optionsMenu. We also want to achieve to add a consistent Overflow menu with standard action items like Help and Settings, according to the [Android Design Guidelines](http://developer.android.com/design/patterns/navigation-drawer.html) (Notice how the overflow menu stays visible as the Drawer layout expands while the contextual action items gets removed from the action bar).
+
+![](demo.gif)
 
 ### License
 

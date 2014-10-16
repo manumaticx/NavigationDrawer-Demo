@@ -7,6 +7,21 @@ function onCreateOptionsMenu(e) {
   if (e.actionBar) {
     e.actionBar.title = "Search";
   }
+  
+  // Search Action 
+  e.menu.add({
+    title : "Search",
+    icon : "/images/ic_action_search.png",
+    showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
+  });
+  
+  // Add Action
+  e.menu.add({
+    title : "Add",
+    icon : "/images/ic_action_new.png",
+    showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
+  });
+
 }
 
 /**

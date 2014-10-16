@@ -36,6 +36,14 @@ function Controller() {
                 e.activity = activity;
                 e.actionBar = actionBar;
                 Alloy.Globals.drawer.isLeftDrawerOpen ? actionBar.title = "TiDrawer Demo" : Alloy.Globals.optionsMenu(e);
+                e.menu.add({
+                    title: "Help",
+                    showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER
+                });
+                e.menu.add({
+                    title: "Settings",
+                    showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER
+                });
             };
             if (actionBar) {
                 actionBar.displayHomeAsUp = true;

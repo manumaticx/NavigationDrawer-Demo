@@ -7,6 +7,27 @@ function onCreateOptionsMenu(e) {
   if (e.actionBar) {
     e.actionBar.title = "Main";
   }
+  
+  // Search Action 
+  e.menu.add({
+    title : "Search",
+    icon : "/images/ic_action_search.png",
+    showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
+  });
+
+  // Refresh Action
+  e.menu.add({
+    title : "Refresh",
+    icon : "/images/ic_action_refresh.png",
+    showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
+  });
+  
+  // additional overflow menu item
+  e.menu.add({
+    title : "Main option",
+    showAsAction : Ti.Android.SHOW_AS_ACTION_NEVER
+  });
+
 }
 
 /**

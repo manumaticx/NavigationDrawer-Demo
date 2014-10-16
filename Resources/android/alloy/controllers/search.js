@@ -10,6 +10,16 @@ function __processArg(obj, key) {
 function Controller() {
     function onCreateOptionsMenu(e) {
         e.actionBar && (e.actionBar.title = "Search");
+        e.menu.add({
+            title: "Search",
+            icon: "/images/ic_action_search.png",
+            showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM
+        });
+        e.menu.add({
+            title: "Add",
+            icon: "/images/ic_action_new.png",
+            showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM
+        });
     }
     function destroy() {
         $.off();

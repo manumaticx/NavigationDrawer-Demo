@@ -88,6 +88,19 @@ function onOpen() {
       } else {
         actionBar.title = "TiDrawer Demo";
       }
+      
+      // Here, we add an Overflow Menu with options that are visible on every window
+      // (you can still hook other options into the overflow)
+      
+      e.menu.add({
+        title : "Help",
+        showAsAction : Ti.Android.SHOW_AS_ACTION_NEVER
+      });
+      
+      e.menu.add({
+        title : "Settings",
+        showAsAction : Ti.Android.SHOW_AS_ACTION_NEVER
+      });
     };
 
     if (actionBar) {
@@ -97,7 +110,7 @@ function onOpen() {
         Alloy.Globals.drawer.toggleLeftWindow();
       };
     }
-  }
+  };
   
   init();
 

@@ -10,6 +10,20 @@ function __processArg(obj, key) {
 function Controller() {
     function onCreateOptionsMenu(e) {
         e.actionBar && (e.actionBar.title = "Main");
+        e.menu.add({
+            title: "Search",
+            icon: "/images/ic_action_search.png",
+            showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM
+        });
+        e.menu.add({
+            title: "Refresh",
+            icon: "/images/ic_action_refresh.png",
+            showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM
+        });
+        e.menu.add({
+            title: "Main option",
+            showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER
+        });
     }
     function destroy() {
         $.off();
