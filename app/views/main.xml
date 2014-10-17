@@ -1,5 +1,5 @@
 <Alloy>
     <View>
-        <Label text="Main view" />
+        <Button title="Open new window" onClick="openWindow" />
     </View>
 </Alloy>

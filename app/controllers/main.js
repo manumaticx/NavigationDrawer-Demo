@@ -1,6 +1,14 @@
 var args = arguments[0] || {};
 
 /**
+ * opens a new window that should act as a second-level view
+ */
+function openWindow(){
+  var win = Alloy.createController('secondWindow').getView();
+  win.open();
+}
+
+/**
  * Callback for Android OptionsMenu
  */
 function onCreateOptionsMenu(e) {
