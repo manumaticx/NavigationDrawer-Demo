@@ -44,7 +44,7 @@ function destroy() {
  */
 function init() {
 
-  // initialization code goes here
+  $.on('createOptionsMenu', onCreateOptionsMenu);
 
 }
 

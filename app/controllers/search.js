@@ -37,9 +37,9 @@ function destroy() {
  * Initializes the controller
  */
 function init() {
-  
-  // initialization code goes here
-   
+
+  $.on('createOptionsMenu', onCreateOptionsMenu);
+
 }
 
 // PUBLIC
