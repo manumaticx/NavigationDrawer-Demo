@@ -1,4 +1,4 @@
-#Demo App for [Ti.DrawerLayout](https://github.com/Tripvi/Ti.DrawerLayout)
+#Demo App for [Ti.DrawerLayout](https://github.com/manumaticx/Ti.DrawerLayout)
 
 This is a demo application for showing how to use [https://github.com/manumaticx/Ti.DrawerLayout](https://github.com/manumaticx/Ti.DrawerLayout)
 
@@ -6,7 +6,13 @@ It shows how to use the drawer for navigation. The left view of the drawer layou
 
 Every content view is a separate controller which can have its own ActionBar setup and optionsMenu. We also want to achieve to add a consistent Overflow menu with standard action items like Help and Settings, according to the [Android Design Guidelines](http://developer.android.com/design/patterns/navigation-drawer.html) (Notice how the overflow menu stays visible as the Drawer layout expands while the contextual action items gets removed from the action bar).
 
+Opening and closing the controllers for the content view is done by a global open method in `alloy.js`. It expects each controller to have an public `init` and `destroy` method. That way we can keep it clean and responsive.
+
 ![](demo.gif)
+
+### Limitations
+
+I tried to make the drawer menu accessible from deeper-level views such as from a second window (e.g. detail window). You can't just add the global drawer reference to this. One workaround could be adding a new drawer instance with the same menu controller in it but this could become dangerous and complex. In a native app you'd use fragments. It's also possible to use activities but I need to think about how this could be accomplished from the module.
 
 ### License
 
