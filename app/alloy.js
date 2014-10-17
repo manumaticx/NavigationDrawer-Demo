@@ -7,6 +7,7 @@
   /**
    * @property {Ti.UI.View} contentView 
    */
+  
   Alloy.Globals.contentView = undefined;
   
   /**
@@ -14,14 +15,6 @@
    * @private
    */
   var currentCtrl;
-  
-  /**
-   * returns currentView
-   * @return {Ti.UI.View} currentView
-   */
-  Alloy.Globals.getCurrentView = function() {
-    return currentCtrl.getView();
-  };
   
   /**
    * optionsmenu dispatcher
@@ -40,7 +33,6 @@
     if (currentCtrl) {
       Alloy.Globals.contentView.remove(currentCtrl.getView());
       _.isFunction(currentCtrl.destroy) && currentCtrl.destroy();
-      currentView = null;
     }
   
     currentCtrl = _ctrl;
