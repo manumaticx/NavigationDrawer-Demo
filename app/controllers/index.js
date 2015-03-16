@@ -52,7 +52,8 @@ function initDrawer() {
     Alloy.Globals.drawer = TiDrawerLayout.createDrawer({
       leftView : menu.getView(),
       centerView : Alloy.Globals.contentView,
-      leftDrawerWidth : 240
+      leftDrawerWidth : 240,
+      drawerArrowIcon : true
     });
 
     Alloy.Globals.drawer.addEventListener('draweropen', onDrawerChange);
@@ -104,7 +105,7 @@ function onOpen() {
     };
 
     if (actionBar) {
-      actionBar.displayHomeAsUp = true;
+      actionBar.displayHomeAsUp = false;
       actionBar.title = "TiDrawer Demo";
       actionBar.onHomeIconItemSelected = function() {
         Alloy.Globals.drawer.toggleLeftWindow();
