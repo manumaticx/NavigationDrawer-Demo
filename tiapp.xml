@@ -39,9 +39,9 @@
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-      <manifest>
-          <application android:theme="@style/Theme.AppCompat.Light"></application>
-      </manifest>
+        <manifest>
+            <application android:theme="@style/Theme.AppCompat.Light"/>
+        </manifest>
     </android>
     <mobileweb>
         <precache/>
@@ -62,7 +62,7 @@
         <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.4.0.GA</sdk-version>
+    <sdk-version>3.5.1.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
