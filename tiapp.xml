@@ -52,7 +52,7 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="android">com.tripvi.drawerlayout</module>
+        <module platform="android" version="1.2.2">com.tripvi.drawerlayout</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>

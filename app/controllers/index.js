@@ -53,7 +53,8 @@ function initDrawer() {
       leftView : menu.getView(),
       centerView : Alloy.Globals.contentView,
       leftDrawerWidth : 240,
-      drawerArrowIcon : true
+      drawerArrowIcon : true,
+      drawerArrowIconColor : '#A48600'
     });
 
     Alloy.Globals.drawer.addEventListener('draweropen', onDrawerChange);
