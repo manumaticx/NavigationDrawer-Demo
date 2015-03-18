@@ -23,7 +23,7 @@ function onCreateOptionsMenu(e) {
   });
 
 }
-
+Alloy.Globals.drawer.setDrawerArrowIconColor('#FF1414');
 /**
  * Cleans up the controller
  * 

@@ -56,6 +56,7 @@ function init() {
 
 }
 
+Alloy.Globals.drawer.setDrawerArrowIconColor('#A48600');
 // PUBLIC
 exports.destroy = destroy;
 exports.init = init;
