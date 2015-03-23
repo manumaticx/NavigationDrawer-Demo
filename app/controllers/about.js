@@ -14,7 +14,7 @@ function onCreateOptionsMenu(e) {
  * 
  * http://www.tidev.io/2014/09/18/cleaning-up-alloy-controllers/
  */
-function destroy() {
+function cleanup() {
   $.off();
 }
 
@@ -28,5 +28,5 @@ function init() {
 }
 
 // PUBLIC
-exports.destroy = destroy;
+exports.cleanup = cleanup;
 exports.init = init;

@@ -23,13 +23,13 @@ function onCreateOptionsMenu(e) {
   });
 
 }
-Alloy.Globals.drawer.setDrawerArrowIconColor('#FF1414');
+
 /**
  * Cleans up the controller
  * 
  * http://www.tidev.io/2014/09/18/cleaning-up-alloy-controllers/
  */
-function destroy() {
+function cleanup() {
   $.off();
 }
 
@@ -37,11 +37,11 @@ function destroy() {
  * Initializes the controller
  */
 function init() {
-
+  
   $.on('createOptionsMenu', onCreateOptionsMenu);
 
 }
 
 // PUBLIC
-exports.destroy = destroy;
+exports.cleanup = cleanup;
 exports.init = init;

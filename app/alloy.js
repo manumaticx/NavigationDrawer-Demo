@@ -32,7 +32,7 @@
   
     if (currentCtrl) {
       Alloy.Globals.contentView.remove(currentCtrl.getView());
-      _.isFunction(currentCtrl.destroy) && currentCtrl.destroy();
+      _.isFunction(currentCtrl.cleanup) && currentCtrl.cleanup();
     }
   
     currentCtrl = _ctrl;

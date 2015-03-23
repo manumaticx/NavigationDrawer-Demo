@@ -43,7 +43,7 @@ function onCreateOptionsMenu(e) {
  * 
  * http://www.tidev.io/2014/09/18/cleaning-up-alloy-controllers/
  */
-function destroy() {
+function cleanup() {
   $.off();
 }
 
@@ -51,12 +51,11 @@ function destroy() {
  * Initializes the controller
  */
 function init() {
-
+  
   $.on('createOptionsMenu', onCreateOptionsMenu);
 
 }
 
-Alloy.Globals.drawer.setDrawerArrowIconColor('#A48600');
 // PUBLIC
-exports.destroy = destroy;
+exports.cleanup = cleanup;
 exports.init = init;
