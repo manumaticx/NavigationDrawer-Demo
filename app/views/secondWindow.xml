@@ -1,5 +1,5 @@
 <Alloy>
-	<Window onOpen="onOpen">
-	  <Label text="New Window" />
-	</Window>
+	<View backgroundColor="yellow">
+	  <Label text="New View" />
+	</View>
 </Alloy>

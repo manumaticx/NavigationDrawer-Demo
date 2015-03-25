@@ -1,4 +1,9 @@
-
-".container" : {
-  
+"TableViewRow" : {
+  left: 20,
+  color: '#efefef',
+  font: {
+    fontFamily: "Roboto",
+    fontSize: 24,
+    fontWeigth: 'bold'
+  }
 }

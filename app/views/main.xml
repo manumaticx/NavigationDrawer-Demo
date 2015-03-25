@@ -1,5 +1,5 @@
 <Alloy>
     <View>
-        <Button title="Open new window" onClick="openWindow" />
+        <Button title="Replace centerView" onClick="replaceCenterView" />
     </View>
 </Alloy>

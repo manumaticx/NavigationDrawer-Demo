@@ -53,8 +53,7 @@ function initDrawer() {
       leftView : menu.getView(),
       centerView : Alloy.Globals.contentView,
       leftDrawerWidth : 240,
-      drawerArrowIcon : true,
-      drawerArrowIconColor : '#A48600'
+      drawerArrowIcon : true
     });
 
     Alloy.Globals.drawer.addEventListener('draweropen', onDrawerChange);
@@ -106,7 +105,7 @@ function onOpen() {
     };
 
     if (actionBar) {
-      actionBar.displayHomeAsUp = false;
+      actionBar.displayHomeAsUp = true;
       actionBar.title = "TiDrawer Demo";
       actionBar.onHomeIconItemSelected = function() {
         Alloy.Globals.drawer.toggleLeftWindow();
