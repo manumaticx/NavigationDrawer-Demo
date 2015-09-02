@@ -1,5 +1,5 @@
 <Alloy>
     <View>
-        <Button title="Replace centerView" onClick="replaceCenterView" />
+        <Label text="MAIN" />
     </View>
 </Alloy>

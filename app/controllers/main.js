@@ -1,18 +1,6 @@
 var args = arguments[0] || {};
 
 /**
- * opens a new view that should act as a second-level view
- */
-function replaceCenterView(){
-  var view = Alloy.createController('secondWindow').getView();
-  
-  // the second parameter tells the drawer to add this replacement to the backstack
-  // so pressing the back-button brings the user back to the previous view
-  // instead of closing the app
-  Alloy.Globals.drawer.replaceCenterView(view, true);
-}
-
-/**
  * Callback for Android OptionsMenu
  */
 function onCreateOptionsMenu(e) {

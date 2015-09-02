@@ -11,7 +11,7 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>91d44a24-0ba2-4b2b-85dc-9e619c5aea6f</guid>
+    <guid>c2d57dde-2de3-4d86-9444-7e279fa2be4f</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
@@ -52,7 +52,7 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="android" version="1.2.2">com.tripvi.drawerlayout</module>
+        <module platform="android">com.tripvi.drawerlayout</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
@@ -62,8 +62,9 @@
         <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.5.1.GA</sdk-version>
+    <sdk-version>4.1.0.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
+    <property name="appc-app-id" type="string">554799e204bca48b76e8d305</property>
 </ti:app>

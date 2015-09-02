@@ -25,6 +25,11 @@
  */
 var menu;
 
+/**
+ * @property {controllers.filter} references a right drawer for testing purpose
+ */
+var filter;
+
 initDrawer();
 
 /**
@@ -42,6 +47,8 @@ function initDrawer() {
       parent : $.index
     });
     
+    filter = Alloy.createController('filter'); 
+    
     // this is just a wrapper
     // actual content views are add to this later
     Alloy.Globals.contentView = Ti.UI.createView({
@@ -50,10 +57,11 @@ function initDrawer() {
     });
 
     Alloy.Globals.drawer = TiDrawerLayout.createDrawer({
-      leftView : menu.getView(),
-      centerView : Alloy.Globals.contentView,
-      leftDrawerWidth : 240,
-      drawerArrowIcon : true
+      leftView: menu.getView(),
+      rightView: filter.getView(),
+      centerView: Alloy.Globals.contentView,
+      leftDrawerWidth: "260",
+      rightDrawerWidth: "240"
     });
 
     Alloy.Globals.drawer.addEventListener('draweropen', onDrawerChange);

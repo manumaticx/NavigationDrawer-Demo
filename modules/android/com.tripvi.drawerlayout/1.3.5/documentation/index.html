@@ -6,7 +6,7 @@ var TiDrawerLayout = require('com.tripvi.drawerlayout');
 var contentView = Ti.UI.createView();
 var leftView = Ti.UI.createTableView({ backgroundColor: '#ccc' });</p>
 <p>var drawer = TiDrawerLayout.createDrawer({
-    contentView: contentView,
+    centerView: contentView,
     leftView: leftView
 });
 ```</p>
@@ -35,7 +35,7 @@ $.drawer.setContentView( main.getView() );</p>
 <li><code>leftDrawerWidth</code> <em>(Number/String)</em> - sets the width of the left drawer</li>
 <li><code>rightDrawerWidth</code> <em>(Number/String)</em> - sets the width of the right drawer</li>
 <li><code>drawerIndicatorEnabled</code> <em>(Boolean)</em> - wether it should use the ActionBarDrawerToggle or not</li>
-<li><code>drawerIndicatorImage</code> <em>(String)</em> - path to a custom drawer indicator image</li>
+<li>~~<code>drawerIndicatorImage</code>~~ <em>(String)</em> - <strong>(DEPRECATED)</strong> path to a custom drawer indicator image</li>
 <li><code>drawerLockMode</code> <em>(int)</em> - sets the lock mode constant. TiDrawerLayout.LOCK_MODE_UNLOCKED (default), TiDrawerLayout.LOCK_MODE_LOCKED_CLOSED, TiDrawerLayout.LOCK_MODE_LOCKED_OPEN</li>
 </ul>
 <h2>Methods</h2>
@@ -43,6 +43,11 @@ $.drawer.setContentView( main.getView() );</p>
 <li><code>setLeftView()</code> - sets the value for the <code>leftView</code> property</li>
 <li><code>setRightView()</code> - sets the value for the <code>rightView</code> property</li>
 <li><code>setCenterView()</code> - sets the value for the <code>centerView</code> property</li>
+<li>~~<code>replaceCenterView(view, backstack)</code>~~ - <strong>(DEPRECATED)</strong> same as <code>setCenterView</code> but with second parameter<ul>
+<li><code>view</code> <em>(Ti.UI.View)</em> - the new centerView</li>
+<li><code>backstack</code> <em>(Boolean)</em> - set this to <code>true</code> if you want to add this to the backstack</li>
+</ul>
+</li>
 <li><code>toggleLeftWindow()</code> - opens or closes the left drawer</li>
 <li><code>openLeftWindow()</code> - opens the left drawer</li>
 <li><code>closeLeftWindow()</code> - closes the left drawer</li>
@@ -56,8 +61,12 @@ $.drawer.setContentView( main.getView() );</p>
 <li><code>setLeftDrawerWidth()</code> - sets the value for the <code>leftDrawerWidth</code> property</li>
 <li><code>setRightDrawerWidth()</code> - sets the value for the <code>rightDrawerWidth</code> property</li>
 <li><code>setDrawerIndicatorEnabled()</code> - sets the value for the <code>drawerIndicatorEnabled</code> property</li>
-<li><code>setDrawerIndicatorImage()</code> - sets the value for the <code>drawerIndicatorImage</code> property</li>
+<li>~~<code>setDrawerIndicatorImage()</code>~~ - <strong>(DEPRECATED)</strong> sets the value for the <code>drawerIndicatorImage</code> property</li>
 <li><code>setDrawerLockMode()</code> - sets the value for the <code>drawerLockMode</code> property</li>
+<li>~~<code>setArrowState(value)</code>~~    - <strong>(DEPRECATED)</strong>  sets the state of the drawerArrowIcon<ul>
+<li><code>value</code> <em>(Number)</em>    - state (1 is arrow, 0 is hamburger, but you can set everything between)</li>
+</ul>
+</li>
 </ul>
 <h2>Events</h2>
 <ul>
@@ -87,6 +96,37 @@ $.drawer.setContentView( main.getView() );</p>
 <p><code>drawerclose</code> - fires when the drawer motion state changes</p>
 <ul>
 <li><code>drawer</code> <em>(String)</em> - left or right</li>
+</ul>
+</li>
+</ul>
+<h2>Tricks &amp; Pitfalls</h2>
+<ul>
+<li>
+<p>Using Drawer for Navigation</p>
+<ul>
+<li>Please check out the <a href="https://github.com/manumaticx/Ti.DrawerLayout-Demo-Alloy-App">Demo App</a></li>
+</ul>
+</li>
+<li>
+<p>Customizing the drawerArrowToggle</p>
+<ul>
+<li>This is done in your ActionBar theme like this:</li>
+</ul>
+<p>```xml
+<style name="AppTheme" parent="Theme.AppCompat.Light">
+    <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+</style></p>
+<p><style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+    <item name="spinBars">true</item>
+    <item name="color">@android:color/white</item>
+</style>
+```</p>
+<p>Android Docs: http://developer.android.com/reference/android/support/v7/appcompat/R.styleable.html#DrawerArrowToggle</p>
+</li>
+<li>
+<p>TabGroup &amp; Drawer</p>
+<ul>
+<li>Please refer to my answer <a href="https://github.com/manumaticx/Ti.DrawerLayout/issues/32#issuecomment-111413941">here</a></li>
 </ul>
 </li>
 </ul>
