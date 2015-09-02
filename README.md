@@ -8,6 +8,8 @@ Every content view is a separate controller which can have its own ActionBar set
 
 Opening and closing the controllers for the content view is done by a global open method in `alloy.js`. It expects each controller to have an public `init` and `cleanup` method. That way we can keep it clean and responsive.
 
+Additionally, this demo shows you how to handle the native back button with a custom backstack implementation. Therefor, each controller that is opened with the global open method is added to a backstack array (actually only the id, not the controller itself - so don't worry, this is memory friendly). You can select another view in the drawer menu and use the native back button to go back to the previous one without keeping it in memory.
+
 ![](demo.gif)
 
 ### Limitations
@@ -18,7 +20,7 @@ I tried to make the drawer menu accessible from deeper-level views such as from 
 
     The MIT License (MIT)
 
-    Copyright (c) 2014 Manuel Lehner
+    Copyright (c) 2014 - 2015 Manuel Lehner
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
