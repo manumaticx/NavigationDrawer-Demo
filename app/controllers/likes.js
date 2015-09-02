@@ -28,5 +28,6 @@ function init() {
 }
 
 // PUBLIC
+exports.id = 'likes';
 exports.cleanup = cleanup;
 exports.init = init;

@@ -32,26 +32,49 @@ function onSelect(e) {
 /**
  * Select menu by row
  * @param {controllers.menuRow} Row
+ * @param {Function}  callback  Callback
+ * @param {Boolean}  addToBackstack  wether the controller should be added to the backstack
+ *                   (default: true)
  */
-function selectRow(_row) {
+function selectRow(_row, _callback, _addToBackstack) {
   if (selected) {
     selected.setActive(false);
   }
 
   selected = _row;
   selected.setActive(true);
-
-  _.defer(function() {
-    Alloy.Globals.open(Alloy.createController(_row.controller, {
-      parent : args.parent
-    }));
-  });
+  
+  Alloy.Globals.open(Alloy.createController(_row.controller, {
+    parent : args.parent,
+  }), OS_ANDROID ? (_.isUndefined(_addToBackstack) || !!_addToBackstack) : false);
+  
+  !!_callback && _callback();
 }
 
 /**
- * Select menu by index
- * @param {Number} Index
+ * Select menu item by index or id
+ * @param {Number|String} Index / id
+ * @param {Function} callback
+ * @param {Boolean} backstack
  */
-exports.select = function(_index) {
-  selectRow(_.first($.menu.getData()).getRows()[_index]);
+exports.select = function(_index, _cb, _addToBackstack) {
+  var row;
+  var rows = _.first($.menu.getData()).getRows();
+  
+  if (_.isNumber(_index)){
+    row = rows[_index];
+  } else {
+    row = _.find(rows, function(_row){ return _row.controller === _index; });
+  }
+  
+  selectRow(row, _cb, _addToBackstack);
+};
+
+/**
+ * updates the Android optionsMenu
+ * I've put this here since the menu controller should always have a reference
+ * to the parent controller's activity
+ */
+exports.invalidateOptionsMenu = function() {
+  _.has(args, 'parent') && args.parent.getActivity().invalidateOptionsMenu();
 };

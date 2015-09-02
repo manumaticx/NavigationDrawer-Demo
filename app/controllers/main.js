@@ -49,5 +49,6 @@ function init() {
 }
 
 // PUBLIC
+exports.id = 'main';
 exports.cleanup = cleanup;
 exports.init = init;

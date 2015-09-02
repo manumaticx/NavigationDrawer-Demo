@@ -43,5 +43,6 @@ function init() {
 }
 
 // PUBLIC
+exports.id = 'search';
 exports.cleanup = cleanup;
 exports.init = init;

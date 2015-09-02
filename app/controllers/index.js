@@ -20,16 +20,6 @@
  * ActionBar setup and optionsMenu.
  */
 
-/**
- * @property {controllers.menu} references Menu
- */
-var menu;
-
-/**
- * @property {controllers.filter} references a right drawer for testing purpose
- */
-var filter;
-
 initDrawer();
 
 /**
@@ -43,11 +33,11 @@ function initDrawer() {
     var TiDrawerLayout = require('com.tripvi.drawerlayout');
     
     // define menu and main content view
-    menu = Alloy.createController('menu', {
+    Alloy.Globals.menu = Alloy.createController('menu', {
       parent : $.index
     });
     
-    filter = Alloy.createController('filter'); 
+    var filter = Alloy.createController('filter'); 
     
     // this is just a wrapper
     // actual content views are add to this later
@@ -57,7 +47,7 @@ function initDrawer() {
     });
 
     Alloy.Globals.drawer = TiDrawerLayout.createDrawer({
-      leftView: menu.getView(),
+      leftView: Alloy.Globals.menu.getView(),
       rightView: filter.getView(),
       centerView: Alloy.Globals.contentView,
       leftDrawerWidth: "260",
@@ -127,6 +117,13 @@ function onOpen() {
 }
 
 /**
+ * callback for Android back button
+ */
+function onBack(){
+  Alloy.Globals.back();
+}
+
+/**
  * callback for drawer open / close event
  * @param {Object} event
  */
@@ -138,6 +135,6 @@ function onDrawerChange(e) {
  * initializes the Controller
  */
 function init() {
-  menu.select(0);
+  Alloy.Globals.menu.select(0);
   OS_ANDROID && $.index.getActivity().invalidateOptionsMenu();
 }
