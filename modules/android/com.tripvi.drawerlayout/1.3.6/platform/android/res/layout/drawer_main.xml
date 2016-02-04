@@ -16,11 +16,13 @@
                xmlns:app="http://schemas.android.com/apk/res-auto"
                android:id="@+id/toolbar"
                android:visibility="gone"
+               android:layout_height="wrap_content"
                android:layout_width="match_parent"
-               android:layout_height="?attr/actionBarSize"
-               android:background="#222299"
+               android:minHeight="?attr/actionBarSize"
+               android:background="@color/primary"
                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+               android:paddingTop="24dp"
                android:elevation="4dp"/>
 
            <com.tripvi.drawerlayout.ContentFrame

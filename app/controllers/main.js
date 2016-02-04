@@ -4,22 +4,43 @@ var args = arguments[0] || {};
  * Callback for Android OptionsMenu
  */
 function onCreateOptionsMenu(e) {
+  
+  var abx = require('com.alcoapps.actionbarextras');
+  
   if (e.actionBar) {
     e.actionBar.title = "Main";
   }
   
   // Search Action 
-  e.menu.add({
+  var searchItem = e.menu.add({
+    itemId: 101,
     title : "Search",
-    icon : "/images/ic_action_search.png",
     showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
+  });
+  
+  abx.setMenuItemIcon({
+    menu: e.menu,
+    menuItem: searchItem,
+    fontFamily: 'MaterialIcons-Regular',
+    icon: String.fromCharCode(0xe8b6),
+    color: "#fff",
+    size: 30
   });
 
   // Refresh Action
-  e.menu.add({
+  var refreshItem = e.menu.add({
+    itemId: 102,
     title : "Refresh",
-    icon : "/images/ic_action_refresh.png",
     showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
+  });
+  
+  abx.setMenuItemIcon({
+    menu: e.menu,
+    menuItem: refreshItem,
+    fontFamily: 'MaterialIcons-Regular',
+    icon: String.fromCharCode(0xe5d5),
+    color: "#fff",
+    size: 30
   });
   
   // additional overflow menu item

@@ -1,9 +1,17 @@
-"TableViewRow" : {
-  left: 20,
-  color: '#efefef',
+"#icon":{
+  left: 16,
+  color: '#8A000000',
   font: {
-    fontFamily: "Roboto",
-    fontSize: 24,
-    fontWeigth: 'bold'
+    fontFamily: 'MaterialIcons-Regular',
+    fontSize: '16dp'
+  }
+},
+
+"#title":{
+  left: 72,
+  color: '#DE000000',
+  font: {
+    fontFamily: "Roboto Medium",
+    fontSize: '14sp'
   }
 }

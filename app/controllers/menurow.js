@@ -13,8 +13,13 @@ var args = arguments[0] || {};
  */
 function init() {
   
+  var icons = require('MaterialIcons');
+  
+  // set icon
+  $.icon.text = String.fromCharCode(icons.charcode[args.icon]);
+  
   // set title
-  $.menurow.title = args.title;
+  $.title.text = args.title;
   
   // bind info about associated controller
   $.menurow.controller = args.controller;
@@ -27,7 +32,7 @@ function init() {
  * @param {Boolean} active
  */
 $.menurow.setActive = function(_active) {
-  $.menurow.setBackgroundColor( _active ? "#333333" : "#3F3D3D" );
+  $.menurow.setBackgroundColor( _active ? "#E8E8E8" : "#FAFAFA" );
 };
 
 init();

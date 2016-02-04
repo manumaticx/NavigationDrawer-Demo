@@ -40,7 +40,7 @@
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest>
-            <application android:theme="@style/Theme.AppCompat.Light"/>
+            <application android:theme="@style/Theme.DrawerTest"/>
         </manifest>
     </android>
     <mobileweb>
@@ -53,6 +53,7 @@
     </mobileweb>
     <modules>
         <module platform="android">com.tripvi.drawerlayout</module>
+        <module platform="android">com.alcoapps.actionbarextras</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
@@ -62,7 +63,7 @@
         <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>5.1.1.GA</sdk-version>
+    <sdk-version>5.1.2.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

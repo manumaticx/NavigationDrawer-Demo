@@ -1,8 +1,11 @@
 <Alloy>
-    <TableView backgroundColor="#3F3D3D" onClick="onSelect">
-      <Require src="menurow" title="Home" controller="main"/>
-      <Require src="menurow" title="Search" controller="search"/>
-      <Require src="menurow" title="Likes" controller="likes"/>
-      <Require src="menurow" title="About" controller="about"/>
+    <TableView backgroundColor="#FAFAFA" onClick="onSelect">
+      <HeaderView>
+        <View height="144" width="fill" backgroundImage="/images/header.jpg" />
+      </HeaderView>
+      <Require src="menurow" title="Home" icon="home" controller="main"/>
+      <Require src="menurow" title="Search" icon="search" controller="search"/>
+      <Require src="menurow" title="Likes" icon="thumb_up" controller="likes"/>
+      <Require src="menurow" title="About" icon="info_outline" controller="about"/>
     </TableView>
 </Alloy>

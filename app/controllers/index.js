@@ -54,9 +54,6 @@ function initDrawer() {
       rightDrawerWidth: "240"
     });
 
-    Alloy.Globals.drawer.addEventListener('draweropen', onDrawerChange);
-    Alloy.Globals.drawer.addEventListener('drawerclose', onDrawerChange);
-
     $.index.add(Alloy.Globals.drawer);
     
   }
@@ -81,12 +78,9 @@ function onOpen() {
       e.activity = activity;
       e.actionBar = actionBar;
 
-      if (!Alloy.Globals.drawer.isLeftDrawerOpen) {
-        // use a global method to forward this event to the nested controller
-        Alloy.Globals.optionsMenu(e);
-      } else {
-        actionBar.title = "TiDrawer Demo";
-      }
+      // distinguishing the drawer state is not necessary anymore
+      // since the drawer covers the toolbar
+      Alloy.Globals.optionsMenu(e);
       
       // Here, we add an Overflow Menu with options that are visible on every window
       // (you can still hook other options into the overflow)
@@ -121,14 +115,6 @@ function onOpen() {
  */
 function onBack(){
   Alloy.Globals.back();
-}
-
-/**
- * callback for drawer open / close event
- * @param {Object} event
- */
-function onDrawerChange(e) {
-  $.index.getActivity().invalidateOptionsMenu();
 }
 
 /**

@@ -4,7 +4,8 @@ This is a demo application for showing how to use [https://github.com/manumaticx
 
 It shows how to use the drawer for navigation. The left view of the drawer layout works as a menu that lets you switch between top-level views. Each content view is represented as an element in the menu.
 
-Every content view is a separate controller which can have its own ActionBar setup and optionsMenu. We also want to achieve to add a consistent Overflow menu with standard action items like Help and Settings, according to the [Android Design Guidelines](http://developer.android.com/design/patterns/navigation-drawer.html) (Notice how the overflow menu stays visible as the Drawer layout expands while the contextual action items gets removed from the action bar).
+~~Every content view is a separate controller which can have its own ActionBar setup and optionsMenu. We also want to achieve to add a consistent Overflow menu with standard action items like Help and Settings, according to the [Android Design Guidelines](http://developer.android.com/design/patterns/navigation-drawer.html) (Notice how the overflow menu stays visible as the Drawer layout expands while the contextual action items gets removed from the action bar).~~
+*EDIT: Since the NavigationDrawer overlaps the Toolbar according to the new Material Deisgn Guide the options menu is not accessible anymore when the Drawer is open.*
 
 Opening and closing the controllers for the content view is done by a global open method in `alloy.js`. It expects each controller to have an public `init` and `cleanup` method. That way we can keep it clean and responsive.
 
@@ -20,7 +21,7 @@ I tried to make the drawer menu accessible from deeper-level views such as from 
 
     The MIT License (MIT)
 
-    Copyright (c) 2014 - 2015 Manuel Lehner
+    Copyright (c) 2014 - 2016 Manuel Lehner
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
