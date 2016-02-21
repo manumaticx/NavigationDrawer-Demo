@@ -67,7 +67,7 @@ exports.select = function(_index, _cb, _addToBackstack) {
     row = _.find(rows, function(_row){ return _row.controller === _index; });
   }
   
-  selectRow(row, _cb, _addToBackstack);
+  !!row && selectRow(row, _cb, _addToBackstack);
 };
 
 /**
