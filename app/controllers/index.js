@@ -54,6 +54,7 @@ function initDrawer() {
       rightDrawerWidth: "240"
     });
 
+    Alloy.Globals.drawer.addEventListener('drawerclose', onDrawerChange);
     $.index.add(Alloy.Globals.drawer);
     
   }
@@ -115,6 +116,14 @@ function onOpen() {
  */
 function onBack(){
   Alloy.Globals.back();
+}
+
+/**
+ * callback for drawer open / close event
+ * @param {Object} event
+ */
+function onDrawerChange(e) {
+  $.index.getActivity().invalidateOptionsMenu();
 }
 
 /**
