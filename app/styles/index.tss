@@ -1,3 +1,6 @@
+"Window":{
+	theme: "Theme.DrawerTest.NoActionBar"
+},
 ".container": {
 	backgroundColor:"white"
 },

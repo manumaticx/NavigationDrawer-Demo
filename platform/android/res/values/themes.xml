@@ -2,9 +2,11 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="Theme.DrawerTest" parent="@style/_base"/>
-        
-    <style name="_base" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.DrawerTest" parent="@style/Theme.AppCompat.Light">
+      <item name="colorPrimary">@color/primary</item>
+    </style>
+
+    <style name="Theme.DrawerTest.NoActionBar" parent="@style/Theme.AppCompat.Light.NoActionBar">
       <item name="android:windowTranslucentStatus">true</item>
       <item name="colorPrimary">@color/primary</item>
     </style>
