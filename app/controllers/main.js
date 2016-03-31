@@ -1,6 +1,13 @@
 var args = arguments[0] || {};
 
 /**
+ * Button Click handler
+ */
+function openWindow(e){
+  Ti.UI.createWindow({ title: "New Window" }).open();
+};
+
+/**
  * Callback for Android OptionsMenu
  */
 function onCreateOptionsMenu(e) {
@@ -72,4 +79,4 @@ function init() {
 // PUBLIC
 exports.id = 'main';
 exports.cleanup = cleanup;
-exports.init = init;
+exports.init = init
