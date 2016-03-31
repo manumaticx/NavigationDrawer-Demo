@@ -4,22 +4,43 @@ var args = arguments[0] || {};
  * Callback for Android OptionsMenu
  */
 function onCreateOptionsMenu(e) {
+  
+  var abx = require('com.alcoapps.actionbarextras');
+  
   if (e.actionBar) {
     e.actionBar.title = "Search";
   }
   
   // Search Action 
-  e.menu.add({
+  var searchItem = e.menu.add({
+    itemId: 101,
     title : "Search",
-    icon : "/images/ic_action_search.png",
     showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
   });
   
+  abx.setMenuItemIcon({
+    menu: e.menu,
+    menuItem: searchItem,
+    fontFamily: 'MaterialIcons-Regular',
+    icon: String.fromCharCode(0xe8b6),
+    color: "#fff",
+    size: 30
+  });
+  
   // Add Action
-  e.menu.add({
+  var addItem = e.menu.add({
+    itemId: 102,
     title : "Add",
-    icon : "/images/ic_action_new.png",
     showAsAction : Ti.Android.SHOW_AS_ACTION_IF_ROOM
+  });
+  
+  abx.setMenuItemIcon({
+    menu: e.menu,
+    menuItem: addItem,
+    fontFamily: 'MaterialIcons-Regular',
+    icon: String.fromCharCode(0xe145),
+    color: "#fff",
+    size: 30
   });
 
 }
